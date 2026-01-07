@@ -5,13 +5,10 @@
     src: url('/deluxemenus-editor/minecraft-font.ttf');
 }
 
-html {
-  padding-left: 10px;
-  box-sizing: border-box;
-}
+html { padding-left: 10px; box-sizing: border-box; }
 
 body {
-  /* 日本語フォントを追加して、文字化け（□□□）を防ぎます */
+  /* 日本語フォントを追加して□□□を防止 */
   font-family: 'Minecraft', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background: #ccc;
   box-sizing: border-box;
@@ -26,18 +23,13 @@ body {
 .value { margin-top: 10px; }
 
 .content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  width: 100%; height: 100%; display: flex;
+  justify-content: center; align-items: center; flex-direction: column;
 }
 
 button:focus {outline:0}
 
 input, textarea, button {
-  /* 入力欄にも日本語対応フォントを適用 */
   font-family: 'Minecraft', "Hiragino Sans", Meiryo, sans-serif;
   background-color: #ccc;
   box-shadow: inset -1px -1px 0px #555555;
@@ -48,93 +40,51 @@ input, textarea, button {
 input, textarea { padding: 5px; margin-top: 3px; }
 
 button {
-  height: max-content;
-  box-sizing: border-box;
-  padding: 6px;
-  cursor: pointer;
-  margin: 2px;
-  flex-shrink: 2;
+  height: max-content; box-sizing: border-box; padding: 6px;
+  cursor: pointer; margin: 2px; flex-shrink: 2;
 }
 
 .download { width: -webkit-fill-available; }
 
 .inventory {
-  width: 335px;
-  height: fit-content;
-  background: #c6c6c6;
-  border-radius: 3px;
+  width: 335px; height: fit-content; background: #c6c6c6; border-radius: 3px;
   box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
-  -webkit-box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  padding: 5px; margin-bottom: 10px;
 }
 
 #title { max-height: 16px; overflow: hidden; margin: 5px 10px; }
 
 .number {
-  text-align: right;
-  width: 22.5px;
-  font-family: 'Minecraft', monospace;
-  font-size: 15px;
-  color: #fefefe;
-  position: relative;
-  text-shadow: #333 1px 2px 1px;
-  top: -11px;
-  right: -7px;
-  cursor: default;
+  text-align: right; width: 22.5px; font-family: 'Minecraft', monospace;
+  font-size: 15px; color: #fefefe; position: relative;
+  text-shadow: #333 1px 2px 1px; top: -11px; right: -7px;
 }
 
 .slot {
-  width: 35px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  background: #8b8b8b;
-  box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
+  width: 35px; height: 35px; display: flex; justify-content: center;
+  background: #8b8b8b; box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
 }
 
 .slotSpace { margin: 10px 10px; display: flex; flex-wrap: wrap; }
 .invisible { visibility: hidden; }
 .item { margin: 2px; display: flex; flex-direction: column; align-items: center; width: 30px; height: 30px; }
 .item img { width: 28px; }
-.ghostItem img { width: 28px; }
-.ghostItem .number { top: -20px; right: -13px; }
 
 .copy {
-  font-family: 'Minecraft', monospace;
-  font-size: 18px;
-  width: 350px;
-  display: flex;
-  justify-content: flex-end;
-  color: #333;
+  font-family: 'Minecraft', monospace; font-size: 18px; width: 350px;
+  display: flex; justify-content: flex-end; color: #333;
 }
-
-a { color: inherit; text-decoration: inherit; }
-.selectedSlot { background: #C5C5C5; }
 
 .Dropdown-control {
   box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
-  border-radius: 3px;
-  background-color: unset !important;
+  border-radius: 3px; background-color: unset !important;
 }
 
 .Dropdown-menu { background-color: #ccc !important; }
-.Dropdown-option.is-selected { background-color: #a5a5a5 !important; }
 
-.rc-tooltip-inner {
-  border: 1px solid #18003D !important;
-  text-shadow: 0.125em 0.125em 0 #3F3F3F;
-  color: #fff !important;
-  background-color: rgba(16,0,16,0.94) !important;
-}
-
-.yamlOpts { width: 96%; height: 180px; }
-
-/* ラベルの幅を広げて重なりを解消 */
+/* --- 日本語化用の追加修正 --- */
 .App-left-area-input-label {
   display: inline-block;
-  width: 140px; 
+  width: 140px; /* 重なり防止のため幅を拡大 */
   text-align: left;
 }
