@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-/* 日本語フォントを追加 */
+/* 日本語を表示するために Google Fonts を読み込みます */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 @font-face {
@@ -10,54 +10,57 @@
 html { padding-left: 10px; box-sizing: border-box; }
 
 body {
-  /* 日本語対応フォントを優先。これで□□□が直ります */
+  /* 日本語フォント(Noto Sans JP)を追加して文字化けを防止 */
   font-family: 'Noto Sans JP', 'Minecraft', sans-serif;
   background: #ccc;
+  box-sizing: border-box;
   width: 100%;
 }
 
-/* --- ここが重要：動画の崩れを直す設定 --- */
-
+/* --- インベントリの縦伸びを阻止する設定 --- */
 .inventory {
-  width: 335px !important; /* 横幅を絶対固定 */
+  width: 335px !important; /* 横幅を強制固定 */
   height: auto !important;
   background: #c6c6c6;
+  border-radius: 3px;
   padding: 5px;
   margin-bottom: 10px;
   display: block !important;
 }
 
 .slotSpace {
-  width: 315px !important; /* スロットが並ぶ範囲を固定 */
+  width: 315px !important; /* スロットが横に並ぶように幅を制限 */
   display: flex !important;
   flex-wrap: wrap !important;
+  margin: 10px 10px;
 }
 
 .slot {
   width: 35px !important;
   height: 35px !important;
   display: flex !important;
+  justify-content: center;
   background: #8b8b8b;
   box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
 }
 
-/* ラベルが重ならないように幅を調整 */
+/* ラベルの重なりを解消 */
 .App-left-area-input-label {
   display: inline-block;
-  width: 130px;
+  width: 140px; /* 日本語に合わせて幅を調整 */
   text-align: left;
 }
 
-/* 右側のエリア */
+/* 右側のエリア（文字が見えるように背景をグレーに戻す） */
 #output {
   float: right;
   width: 50vw;
   height: 95vh;
-  background: #eee;
+  background: #ccc;
 }
 
-/* 消えていた文字（Downloadなど）を見えるように */
+/* DownloadやYAMLの文字色を黒に固定 */
 .Dropdown-control, .download button {
-  color: #333 !important;
-  background: #f5f5f5 !important;
+  color: #000 !important;
+  background: #eee !important;
 }
