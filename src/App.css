@@ -1,47 +1,74 @@
-/* 日本語フォントとマイクラ風フォントの統合 */
+/* 日本語フォントを最優先で読み込み、文字化けを根絶します */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+@font-face {
+    font-family: "Minecraft";
+    src: url('/deluxemenus-editor/minecraft-font.ttf');
+}
 
 body {
   margin: 0;
   padding: 0;
-  /* 日本語を最優先にし、次にマイクラ風を適用 */
+  /* 日本語フォント(Noto Sans JP)を先頭に。これで□□□が消えます */
   font-family: 'Noto Sans JP', 'Minecraft', sans-serif;
-  background-color: #333; /* 背景を少し暗くしてモダンに */
-  color: #fff;
+  background-color: #2c2c2c; /* ダークモード風でモダンに */
+  color: #f0f0f0;
+  height: 100vh;
 }
 
-/* 右側のタブ（Download / YAML）が消える問題の対策 */
+/* 右側のエディタとタブのエリア */
 #output {
   float: right;
-  width: 45vw;
-  height: 95vh;
-  background: #222;
-  border-left: 4px solid #555;
+  width: 48vw;
+  height: 100vh;
+  background: #1e1e1e;
+  border-left: 2px solid #444;
+  box-sizing: border-box;
 }
 
-/* タブの文字を強制的に表示させる */
-.Dropdown-control, .download button, .yamlOpts {
-  color: #000 !important; /* 背景が明るい場合は黒に */
-  font-weight: bold;
+/* タブやボタンの文字色を強制的に白にして、消えて見えるのを防ぎます */
+.Dropdown-control, .download, .yamlOpts, button {
+  color: #ffffff !important;
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
 
-/* 左側の入力エリアの重なりを解消 */
+/* 左側の入力項目の重なりを解決 */
 .App-left-area-input-label {
   display: inline-block;
-  width: 160px; /* 日本語が絶対にはみ出さない幅 */
-  margin-bottom: 10px;
-  color: #ddd;
+  width: 150px; /* 日本語ラベルが余裕で入る幅に拡大 */
+  text-align: left;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #bbb;
 }
 
+/* 入力欄のデザインも一新 */
 input, textarea {
-  width: 250px;
+  background: #3c3c3c;
+  border: 1px solid #555;
+  color: #fff;
   padding: 8px;
-  background: #fff;
-  border: 2px solid #555;
-  font-family: 'Noto Sans JP', sans-serif;
+  border-radius: 4px;
+  width: 200px;
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
 
-/* 文字化け（□□□）を強制上書き */
+/* マイクラ風インベントリの見た目は維持 */
+.inventory {
+  background: #c6c6c6;
+  border: 3px solid #555;
+  box-shadow: inset 3px 3px 0 #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.slot {
+  background: #8b8b8b;
+  border: 2px solid #373737;
+  box-shadow: inset -2px -2px 0 #fff;
+}
+
+/* 全体のフォントを日本語対応に強制上書き */
 * {
-  font-family: 'Noto Sans JP', sans-serif !important;
+  font-family: 'Noto Sans JP', 'Minecraft', sans-serif !important;
 }
