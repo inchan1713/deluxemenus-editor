@@ -11,4 +11,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// モバイル環境などでの動作を安定させるための設定です
 serviceWorker.unregister();
