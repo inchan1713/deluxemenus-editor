@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  /* 日本語フォントをここに追加することで、文字化け（トーフ）を防ぎます */
+  /* 日本語フォントを追加して、文字化け（□□□）を防ぎます */
   font-family: 'Minecraft', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background: #ccc;
   box-sizing: border-box;
@@ -132,11 +132,9 @@ a { color: inherit; text-decoration: inherit; }
 
 .yamlOpts { width: 96%; height: 180px; }
 
-/* --------------------------------------------------
-   日本語化で重なってしまうラベルの幅を広げる修正
-   -------------------------------------------------- */
+/* ラベルの幅を広げて重なりを解消 */
 .App-left-area-input-label {
   display: inline-block;
-  width: 140px; /* 100pxから140pxに広げました */
+  width: 140px; 
   text-align: left;
 }
