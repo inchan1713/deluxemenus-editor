@@ -1,4 +1,5 @@
-/* 日本語フォントを最優先で読み込み、文字化けを根絶します */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* 日本語フォントを追加 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 @font-face {
@@ -6,69 +7,57 @@
     src: url('/deluxemenus-editor/minecraft-font.ttf');
 }
 
+html { padding-left: 10px; box-sizing: border-box; }
+
 body {
-  margin: 0;
-  padding: 0;
-  /* 日本語フォント(Noto Sans JP)を先頭に。これで□□□が消えます */
+  /* 日本語対応フォントを優先。これで□□□が直ります */
   font-family: 'Noto Sans JP', 'Minecraft', sans-serif;
-  background-color: #2c2c2c; /* ダークモード風でモダンに */
-  color: #f0f0f0;
-  height: 100vh;
+  background: #ccc;
+  width: 100%;
 }
 
-/* 右側のエディタとタブのエリア */
-#output {
-  float: right;
-  width: 48vw;
-  height: 100vh;
-  background: #1e1e1e;
-  border-left: 2px solid #444;
-  box-sizing: border-box;
-}
+/* --- ここが重要：動画の崩れを直す設定 --- */
 
-/* タブやボタンの文字色を強制的に白にして、消えて見えるのを防ぎます */
-.Dropdown-control, .download, .yamlOpts, button {
-  color: #ffffff !important;
-  font-family: 'Noto Sans JP', sans-serif !important;
-}
-
-/* 左側の入力項目の重なりを解決 */
-.App-left-area-input-label {
-  display: inline-block;
-  width: 150px; /* 日本語ラベルが余裕で入る幅に拡大 */
-  text-align: left;
-  margin-right: 10px;
-  vertical-align: middle;
-  color: #bbb;
-}
-
-/* 入力欄のデザインも一新 */
-input, textarea {
-  background: #3c3c3c;
-  border: 1px solid #555;
-  color: #fff;
-  padding: 8px;
-  border-radius: 4px;
-  width: 200px;
-  font-family: 'Noto Sans JP', sans-serif !important;
-}
-
-/* マイクラ風インベントリの見た目は維持 */
 .inventory {
+  width: 335px !important; /* 横幅を絶対固定 */
+  height: auto !important;
   background: #c6c6c6;
-  border: 3px solid #555;
-  box-shadow: inset 3px 3px 0 #fff;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: block !important;
+}
+
+.slotSpace {
+  width: 315px !important; /* スロットが並ぶ範囲を固定 */
+  display: flex !important;
+  flex-wrap: wrap !important;
 }
 
 .slot {
+  width: 35px !important;
+  height: 35px !important;
+  display: flex !important;
   background: #8b8b8b;
-  border: 2px solid #373737;
-  box-shadow: inset -2px -2px 0 #fff;
+  box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
 }
 
-/* 全体のフォントを日本語対応に強制上書き */
-* {
-  font-family: 'Noto Sans JP', 'Minecraft', sans-serif !important;
+/* ラベルが重ならないように幅を調整 */
+.App-left-area-input-label {
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+}
+
+/* 右側のエリア */
+#output {
+  float: right;
+  width: 50vw;
+  height: 95vh;
+  background: #eee;
+}
+
+/* 消えていた文字（Downloadなど）を見えるように */
+.Dropdown-control, .download button {
+  color: #333 !important;
+  background: #f5f5f5 !important;
 }
