@@ -15,7 +15,7 @@ import 'react-dropdown/style.css';
 import "ace-builds/src-noconflict/mode-yaml";
 import "ace-builds/src-noconflict/theme-github";
 
-const LANGLIST = ['russian', 'english', 'chinese'];
+const LANGLIST = ['russian', 'english', 'chinese', 'japanese'];
 
 let LANG = _LANG;
 const _lang = localStorage.getItem('lang') || 'english';
